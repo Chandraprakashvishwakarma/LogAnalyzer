@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Analysis Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Log Analysis Results</h1>
+        
+        <h3>Summary</h3>
+        <ul>
+            <li th:text="'Total Log Entries: ' + ${summary.totalEntries}"></li>
+            <li th:text="'ERROR: ' + ${summary.errorCount}"></li>
+            <li th:text="'WARN: ' + ${summary.warnCount}"></li>
+            <li th:text="'INFO: ' + ${summary.infoCount}"></li>
+        </ul>
+
+        <h3>Filtered Log Entries</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Log Level</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="entry : ${logEntries}">
+                    <td th:text="${entry.timestamp}"></td>
+                    <td th:text="${entry.logLevel}"></td>
+                    <td th:text="${entry.message}"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a class="btn btn-secondary" th:href="@{/}">Analyze Another Log</a>
+    </div>
+</body>
+</html>

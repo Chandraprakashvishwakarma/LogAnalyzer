@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Log Analyzer</h1>
+        <form action="#" th:action="@{/analyze}" method="post">
+            <div class="form-group">
+                <label for="logFilePath">Log File Path</label>
+                <input type="text" class="form-control" id="logFilePath" name="logFilePath" placeholder="Enter the path to your log file" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze</button>
+        </form>
+    </div>
+</body>
+</html>
